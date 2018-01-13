@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { Text, View, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-export default class Home extends React.Component {
+export default class Login extends React.Component {
   static navigationOptions = {
-    title: 'Home'
+    title: 'Login'
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>HOME PAGE</Text>
-        <Button onPress={() => this.props.navigation.navigate('Login')}
-        title="Go to Login" />
+        <Text>LOGIN PAGE</Text>
+        <Button onPress={() => this.props.navigation.navigate('Home')}
+        title="Go Home" />
       </View>
     );
   }
