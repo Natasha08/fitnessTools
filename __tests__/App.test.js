@@ -7,5 +7,6 @@ import IosApp from '../App';
 
 it('renders without crashing', () => {
   const wrapper = shallow(<IosApp />);
+  
   expect(wrapper).toMatchSnapshot();
 });
