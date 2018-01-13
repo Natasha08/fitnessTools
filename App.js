@@ -1,29 +1,21 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, View, StyleSheet } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { createStore } from 'redux';
+import { Provider } from "react-redux";
 
-class Home extends React.Component {
+import rootReducer from './src/reducers/index';
+import Home from './src/pages/home';
+import AppWithNavigationState from './src/app';
+
+const store = createStore(rootReducer);
+
+class Root extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>HOME PAGE</Text>
-      </View>
+      <Provider store={store}>
+        <AppWithNavigationState />
+      </Provider>
     );
   }
 }
 
-const App = StackNavigator({
-  Home: { screen: Home }
-});
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
-export default App;
+export default Root;
