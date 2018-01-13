@@ -4,7 +4,7 @@ exports[`renders without crashing 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Home />,
+  Symbol(enzyme.__unrendered__): <Root />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -17,18 +17,13 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
-        HOME PAGE
-      </Text>,
-      "style": Object {
-        "alignItems": "center",
-        "backgroundColor": "#fff",
-        "flex": 1,
-        "justifyContent": "center",
+      "children": <Connect(App) />,
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
       },
     },
     "ref": null,
@@ -36,14 +31,9 @@ ShallowWrapper {
       "instance": null,
       "key": undefined,
       "nodeType": "class",
-      "props": Object {
-        "accessible": true,
-        "allowFontScaling": true,
-        "children": "HOME PAGE",
-        "ellipsizeMode": "tail",
-      },
+      "props": Object {},
       "ref": null,
-      "rendered": "HOME PAGE",
+      "rendered": null,
       "type": [Function],
     },
     "type": [Function],
@@ -54,18 +44,13 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-          HOME PAGE
-        </Text>,
-        "style": Object {
-          "alignItems": "center",
-          "backgroundColor": "#fff",
-          "flex": 1,
-          "justifyContent": "center",
+        "children": <Connect(App) />,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
         },
       },
       "ref": null,
@@ -73,14 +58,9 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
-        "props": Object {
-          "accessible": true,
-          "allowFontScaling": true,
-          "children": "HOME PAGE",
-          "ellipsizeMode": "tail",
-        },
+        "props": Object {},
         "ref": null,
-        "rendered": "HOME PAGE",
+        "rendered": null,
         "type": [Function],
       },
       "type": [Function],
