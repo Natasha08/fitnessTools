@@ -19,11 +19,11 @@ ShallowWrapper {
     "props": Object {
       "children": <Connect(App) />,
       "store": Object {
+        "@@observable": [Function],
         "dispatch": [Function],
         "getState": [Function],
         "replaceReducer": [Function],
         "subscribe": [Function],
-        Symbol(observable): [Function],
       },
     },
     "ref": null,
@@ -46,11 +46,11 @@ ShallowWrapper {
       "props": Object {
         "children": <Connect(App) />,
         "store": Object {
+          "@@observable": [Function],
           "dispatch": [Function],
           "getState": [Function],
           "replaceReducer": [Function],
           "subscribe": [Function],
-          Symbol(observable): [Function],
         },
       },
       "ref": null,

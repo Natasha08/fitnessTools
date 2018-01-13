@@ -6,18 +6,24 @@
     "babel-preset-react-native-stage-0": "^1.0.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^21.0.0",
     "jest-expo": "23.0.0",
+    "jsdom": "^11.5.1",
     "react-dom": "^16.2.0",
+    "react-native-mock": "github:RealOrangeOne/react-native-mock#master",
+    "react-native-mock-render": "^0.0.19",
     "react-test-renderer": "16.0.0"
   },
   "scripts": {
     "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "test": "jest"
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "setupTestFrameworkScriptFile": "./test_helper"
   },
   "dependencies": {
     "react": "16.0.0",

@@ -3,7 +3,6 @@ import { View, StyleSheet } from 'react-native';
 import { AppRegistry } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements'
 
-
 export default class Login extends React.Component {
   static navigationOptions = {
     title: 'Login'
@@ -11,7 +10,7 @@ export default class Login extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { username: '' };
+    this.state = { username: '', password: '' };
   }
 
   submit = (e) => {
@@ -19,21 +18,23 @@ export default class Login extends React.Component {
   }
 
   render() {
-    console.log("USERNAME", this.state.username)
     return (
       <View style={styles.container}>
         <FormLabel>Username</FormLabel>
         <FormInput
+          className='username'
           style={{borderColor: 'gray', borderWidth: 1}}
-          onChangeText={(username) => this.setState({username})}
+          onChange={(e) => this.setState({username: e.target.value})}
           value={this.state.username}
+          ref='username'
           placeholder='Enter your username'
         />
 
         <FormLabel>Password</FormLabel>
         <FormInput
+          className='password'
           style={{borderColor: 'gray', borderWidth: 1}}
-          onChangeText={(password) => this.setState({password})}
+          onChange={(e) => this.setState({password: e.target.value})}
           ref='password'
           placeholder='Enter your password'
         />
