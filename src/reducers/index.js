@@ -1,13 +1,10 @@
 import { combineReducers } from 'redux';
 import navReducer from './nav';
-
-function defaultReducer(state = {}, action) {
-  return state
-}
+import authReducer from './auth';
 
 const rootReducer = combineReducers({
   nav: navReducer,
-  test: defaultReducer
+  auth: authReducer
 });
 
 export default rootReducer;

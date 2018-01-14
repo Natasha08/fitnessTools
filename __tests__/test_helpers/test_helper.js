@@ -25,5 +25,5 @@ function setUpDomEnvironment() {
   copyProps(window, global);
 }
 
-setUpDomEnvironment();
 globalSetup();
+setUpDomEnvironment();

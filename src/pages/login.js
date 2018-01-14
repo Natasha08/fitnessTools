@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
 import { AppRegistry } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements'
+import axios from 'axios';
 
-export default class Login extends React.Component {
+export class Login extends React.Component {
   static navigationOptions = {
     title: 'Login'
   };
@@ -14,7 +16,22 @@ export default class Login extends React.Component {
   }
 
   submit = (e) => {
+    // create an api.js w/ axios methods
+    // create thunk actions and move the logic below to an actions
+    // set the url to something better
+    // remove the password from state and deal w/ it another way
+    // move styles to its own folder
 
+    return axios.post('https://mycolofitness.herokuapp.com/api/token', {
+      username: 'admin',
+      password: 'password'
+    })
+    .then(response => {
+      // console.log("RESPONSE", response);
+    })
+    .catch(error => {
+      // console.log("ERROR", error);
+    });
   }
 
   render() {
@@ -22,24 +39,20 @@ export default class Login extends React.Component {
       <View style={styles.container}>
         <FormLabel>Username</FormLabel>
         <FormInput
-          className='username'
           style={{borderColor: 'gray', borderWidth: 1}}
           onChange={(e) => this.setState({username: e.target.value})}
           value={this.state.username}
-          ref='username'
           placeholder='Enter your username'
         />
 
         <FormLabel>Password</FormLabel>
         <FormInput
-          className='password'
           style={{borderColor: 'gray', borderWidth: 1}}
           onChange={(e) => this.setState({password: e.target.value})}
-          ref='password'
           placeholder='Enter your password'
         />
 
-        <Button onPress={() => this.submit()}
+        <Button onPress={this.submit()}
           title="Login" />
       </View>
     );
@@ -53,4 +66,12 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('fitnessTools', () => Login);
+
+const mapStoreToProps = ({auth}) => ({auth});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (data) => dispatch(login(data))
+  }
+};
+
+export default connect(mapStoreToProps, mapDispatchToProps)(Login);
