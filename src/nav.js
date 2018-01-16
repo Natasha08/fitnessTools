@@ -4,7 +4,7 @@ import Login from './pages/login';
 
 const AppNavigator = StackNavigator({
   Home: { screen: Home },
-  Login: { screen: Login }
-});
+  Login: { screen: Login }}
+);
 
 export default AppNavigator;

@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
 import { AppRegistry } from 'react-native';
-import { FormLabel, FormInput, Button } from 'react-native-elements'
+import { FormLabel, FormInput, Button } from 'react-native-elements';
 import axios from 'axios';
+
+import { loginUser, userReceived } from '../actions/auth';
+import config from '../../config';
 
 export class Login extends React.Component {
   static navigationOptions = {
@@ -16,22 +19,17 @@ export class Login extends React.Component {
   }
 
   submit = (e) => {
-    // create an api.js w/ axios methods
-    // create thunk actions and move the logic below to an actions
-    // set the url to something better
-    // remove the password from state and deal w/ it another way
-    // move styles to its own folder
+    e.preventDefault();
+    const { username, password } = this.state;
+    const { userReceived, navigation } = this.props;
+    const url = config.API_HOST + '/api/token';
 
-    return axios.post('https://mycolofitness.herokuapp.com/api/token', {
-      username: 'admin',
-      password: 'password'
+    return axios.post(url, { username: 'admin', password: 'asdf' })
+    .then((response) => {
+      userReceived(response.data);
+      navigation.navigate('Home');
     })
-    .then(response => {
-      // console.log("RESPONSE", response);
-    })
-    .catch(error => {
-      // console.log("ERROR", error);
-    });
+    .catch((error) => console.log("ERROR LOGGING IN", error));
   }
 
   render() {
@@ -39,6 +37,7 @@ export class Login extends React.Component {
       <View style={styles.container}>
         <FormLabel>Username</FormLabel>
         <FormInput
+          className="username"
           style={{borderColor: 'gray', borderWidth: 1}}
           onChange={(e) => this.setState({username: e.target.value})}
           value={this.state.username}
@@ -47,12 +46,13 @@ export class Login extends React.Component {
 
         <FormLabel>Password</FormLabel>
         <FormInput
+          className="password"
           style={{borderColor: 'gray', borderWidth: 1}}
           onChange={(e) => this.setState({password: e.target.value})}
           placeholder='Enter your password'
         />
 
-        <Button onPress={this.submit()}
+        <Button onPress={this.submit}
           title="Login" />
       </View>
     );
@@ -62,7 +62,8 @@ export class Login extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    paddingTop: 30
   },
 });
 
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
 const mapStoreToProps = ({auth}) => ({auth});
 const mapDispatchToProps = (dispatch) => {
   return {
-    login: (data) => dispatch(login(data))
+    userReceived: (user) => dispatch(userReceived(user))
   }
 };
 

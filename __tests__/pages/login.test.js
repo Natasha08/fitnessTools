@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-
 import { Login } from '../../src/pages/login';
+import config from '../../config';
 
 const mockStore = configureMockStore([thunk]);
 
@@ -36,24 +36,19 @@ describe('Login Page', function() {
     expect(password).toEqual('password');
   });
 
-  it('calls the api with user info and receives a token', function() {
-    moxios.stubRequest('https://mycolofitness.herokuapp.com/api/token', {
-      status: 200,
-      response: { token: 'f79f6a6d-dfce-4350-9185-eec2f61ef310' }
-    });
-
-    const store = mockStore({});
-    const wrapper = mount(<Login />, { context: { store }});
-    const usernameInput = findElement(wrapper, { placeholder: 'Enter your username' });
-    const passwordInput = findElement(wrapper, { placeholder: 'Enter your password' });
-    changeInput(usernameInput, 'test user');
-    changeInput(passwordInput, 'password');
-
-    const submit = wrapper.find('Button').filterWhere(matchText('Login'));
-    submit.simulate('click');
-  });
-
-  it('updates the store', function() {
-
+  it('calls the api with user info', function() {
+    // const store = mockStore({ auth: null });
+    // const login = () => jest.fn();
+    // // const dispatch = (loginSpy) => loginSpy();
+    // const wrapper = mount(<Login login={login}/>, { context: { store }});
+    // const usernameInput = findElement(wrapper, '.username');
+    // const passwordInput = findElement(wrapper, '.password');
+    // changeInput(usernameInput, 'test user');
+    // changeInput(passwordInput, 'password');
+    // //
+    // const submit = wrapper.find('Button').filterWhere(matchText('Login'));
+    // // submit.simulate('click');
+    //
+    // expect(login).toHaveBeenCalled();
   });
 });
