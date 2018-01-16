@@ -3,8 +3,8 @@ import Home from './pages/home';
 import Login from './pages/login';
 
 const AppNavigator = StackNavigator({
-  Home: { screen: Home },
-  Login: { screen: Login }}
+  Login: { screen: Login },
+  Home: { screen: Home }}
 );
 
 export default AppNavigator;

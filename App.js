@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import thunk from 'redux-thunk';
 
 import rootReducer from './src/reducers/index';
-import Home from './src/pages/home';
 import AppWithNavigationState from './src/app';
 
 const store = createStore(

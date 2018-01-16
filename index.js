@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { AppRegistry } from 'react-native';
 
 import rootReducer from './src/reducers/index';
-import Home from './src/pages/home';
 import AppWithNavigationState from './src/app';
 
 const store = createStore(rootReducer);
