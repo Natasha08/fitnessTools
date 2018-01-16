@@ -20,11 +20,12 @@ export class Login extends React.Component {
 
   submit = (e) => {
     e.preventDefault();
-    const { username, password } = this.state;
+    const { username='', password='' } = this.state;
     const { userReceived, navigation } = this.props;
     const url = config.API_HOST + '/api/token';
+    const user = { username: config.USERNAME, password: config.PASSWORD };
 
-    return axios.post(url, { username: 'admin', password: 'asdf' })
+    return axios.post(url, user)
     .then((response) => {
       userReceived(response.data);
       navigation.navigate('Home');
