@@ -6,34 +6,13 @@ import { View, Text } from 'react-native';
 import NutritionScreen from './screens/nutrition';
 import HomeScreen from './screens/home';
 import Login from './screens/login';
+import SavedFoods from './screens/saved_foods';
 
 const WorkoutsScreen = () => {
   return (
     <View>
       <Text>
         I am a workout Screen
-      </Text>
-    </View>
-  );
-};
-
-const MoreScreen = () => {
-  return (
-    <View>
-      <Text>
-        I am a more Screen
-      </Text>
-    </View>
-  );
-};
-
-
-
-const SavedFoods = () => {
-  return (
-    <View>
-      <Text>
-        I am a SavedFoods Screen
       </Text>
     </View>
   );
@@ -59,15 +38,16 @@ const Search = () => {
   );
 };
 
-const Workouts = () => {
+const newFoodForm = () => {
   return (
     <View>
       <Text>
-        I am a Workouts Screen
+        I am a newFoodForm Screen
       </Text>
     </View>
   );
 };
+
 const NutritionScreenNavigator = TabNavigator({
   SavedFoods: {
     screen: SavedFoods,
@@ -84,7 +64,7 @@ const NutritionScreenNavigator = TabNavigator({
     }
   },
   Search: {
-    screen:  Search,
+    screen: Search,
     navigationOptions: {
       title: 'Search',
       tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.bicycle}</FontAwesome>
@@ -115,13 +95,16 @@ const AppNavigator = StackNavigator({
       title: 'Home'
     }},
   Nutrition: {
-    screen: NutritionScreenNavigator,
+    screen: NutritionScreenNavigator
+  },
+  NewFood: {
+    screen: newFoodForm,
     navigationOptions: {
-      tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.apple}</FontAwesome>
+      title: 'New Food'
     }
   },
   Workouts: {
-    screen: Workouts,
+    screen: WorkoutsScreen,
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.apple}</FontAwesome>
     }
