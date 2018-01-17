@@ -1,19 +1,11 @@
 import React from 'react';
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 import FontAwesome, { Icons } from "react-native-fontawesome";
 import { View, Text } from 'react-native';
-import HomeScreen from './pages/home';
-import Login from './pages/login';
 
-const FoodScreen = () => {
-  return (
-    <View>
-      <Text>
-        I am a Food Screen
-      </Text>
-    </View>
-  );
-};
+import NutritionScreen from './screens/nutrition';
+import HomeScreen from './screens/home';
+import Login from './screens/login';
 
 const WorkoutScreen = () => {
   return (
@@ -44,9 +36,9 @@ const HomeScreenNavigator = TabNavigator({
     }
   },
   Eat: {
-    screen: FoodScreen,
+    screen: NutritionScreen,
     navigationOptions: {
-      title: 'Eat',
+      title: 'Nutrition',
       tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.apple}</FontAwesome>
     }
   },
@@ -78,8 +70,8 @@ const AppNavigator = StackNavigator({
     }
   },
   Home: { screen: HomeScreenNavigator },
-  Eat: {
-    screen: FoodScreen,
+  Nutrition: {
+    screen: NutritionScreen,
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.apple}</FontAwesome>
     }
