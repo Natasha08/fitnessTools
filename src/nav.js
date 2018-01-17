@@ -60,6 +60,7 @@ const HomeScreenNavigator = TabNavigator({
   Logout: {
     screen:  Login,
     navigationOptions: {
+      tabBarLabel: 'Logout',
       title: 'Login',
       tabBarVisible: false,
       tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.signOut}</FontAwesome>
@@ -68,21 +69,6 @@ const HomeScreenNavigator = TabNavigator({
 }, {
   tabBarOptions: {}
 });
-
-// tabBarOptions: {
-//   activeTintColor: Colors.white,
-//   inactiveTintColor: Colors.transparentWhite,
-//   showLabel: true,
-//   showIcon: true,
-//   upperCaseLabel: false,
-//   pressColor: Colors.transparentWhite,
-//   scrollEnabled: false,
-//   tabStyle: styles.tab,
-//   indicatorStyle: styles.indicator,
-//   labelStyle: styles.label,
-//   iconStyle: styles.icon,
-//   style: styles.tabBar
-// }
 
 const AppNavigator = StackNavigator({
   Login: {

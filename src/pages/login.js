@@ -53,7 +53,6 @@ export class Login extends React.Component {
         <FormLabel>Username</FormLabel>
         <FormInput
           className="username"
-          style={{borderColor: 'gray', borderWidth: 1}}
           onChange={(e) => this.setState({username: e.target.value})}
           value={this.state.username}
           placeholder='Enter your username'
@@ -67,7 +66,7 @@ export class Login extends React.Component {
           placeholder='Enter your password'
         />
 
-        <Button onPress={this.submit}
+        <Button style={styles.submit} onPress={this.submit}
           title="Login" />
       </View>
     );
@@ -78,8 +77,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: 30
+    paddingTop: 50
   },
+  submit: {
+    paddingTop: 50
+  }
 });
 
 const mapStoreToProps = ({auth}) => ({auth});
