@@ -1,21 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, StyleSheet } from 'react-native';
-import { AppRegistry } from 'react-native';
+import { View, StyleSheet, AppRegistry } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
+import { NavigationActions } from 'react-navigation'
+
 import axios from 'axios';
 
 import { loginUser, userReceived } from '../actions/auth';
 import config from '../../config';
 
-export class Login extends React.Component {
-  static navigationOptions = {
-    title: 'Login'
-  };
+const clearStackAndNavigate = (routeName, dispatch) => {
+  const resetAction = NavigationActions.reset({
+   index: 0,
+   actions: [
+     NavigationActions.navigate({ routeName })
+   ],
+   key: null
+ });
+ dispatch(resetAction);
+};
 
+export class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = { username: '', password: '' };
+  }
+
+  navigateToHome() {
+    const { dispatch, state } = this.props.navigation;
+
+    clearStackAndNavigate('Home', dispatch);
   }
 
   submit = (e) => {
@@ -28,7 +42,7 @@ export class Login extends React.Component {
     return axios.post(url, user)
     .then((response) => {
       userReceived(response.data);
-      navigation.navigate('Home');
+      this.navigateToHome()
     })
     .catch((error) => console.log("ERROR LOGGING IN", error));
   }
@@ -67,7 +81,6 @@ const styles = StyleSheet.create({
     paddingTop: 30
   },
 });
-
 
 const mapStoreToProps = ({auth}) => ({auth});
 const mapDispatchToProps = (dispatch) => {
