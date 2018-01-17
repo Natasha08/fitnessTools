@@ -7,7 +7,8 @@ class NutritionPage extends React.Component {
     return (
       <View>
         <Text>
-          I am a Food Screen
+          This is the main nutrition page. This page will be removed from the icons
+          and be a sort of information page for the user.
         </Text>
       </View>
     );

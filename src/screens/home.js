@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { TabNavigator } from 'react-navigation';
 import { Text, View, ScrollView, StyleSheet } from 'react-native';
+import { Button } from 'react-native-elements';
 import Login from './login';
 
 export default class Home extends React.Component {
+  navigate = (path) => {
+    return (e) => {
+      this.props.navigation.navigate(path);
+    }
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -14,6 +20,8 @@ export default class Home extends React.Component {
             eget, vestibulum at erat. Vestibulum maximus urna vitae arcu vestibulum,
             sed ullamcorper nibh accumsan. Aenean sapien magna, ultricies quis lacus
           </Text>
+          <Button style={styles.submit} onPress={this.navigate('Nutrition')}
+            title="Nutrition" />
           <Text>
             luctus, viverra varius sapien. Cras egestas orci at auctor ullamcorper.
             Praesent ac sem id leo sodales tincidunt quis non mauris. Pellentesque
@@ -21,6 +29,8 @@ export default class Home extends React.Component {
             fringilla, luctus purus ut, blandit risus. Maecenas dapibus dui nisi, nec
             vestibulum sapien porttitor at. Aenean dictum in leo ac vehicula.
           </Text>
+          <Button style={styles.submit} onPress={this.navigate('Workouts')}
+            title="Workouts" />
           <Text>
             Quisque laoreet dictum nulla, placerat rutrum lacus dictum sit amet.
             Vivamus at quam ut leo consectetur iaculis. In euismod nisl non neque

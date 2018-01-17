@@ -7,7 +7,7 @@ import NutritionScreen from './screens/nutrition';
 import HomeScreen from './screens/home';
 import Login from './screens/login';
 
-const WorkoutScreen = () => {
+const WorkoutsScreen = () => {
   return (
     <View>
       <Text>
@@ -27,25 +27,66 @@ const MoreScreen = () => {
   );
 };
 
-const HomeScreenNavigator = TabNavigator({
-  Home: {
-    screen: HomeScreen,
+
+
+const SavedFoods = () => {
+  return (
+    <View>
+      <Text>
+        I am a SavedFoods Screen
+      </Text>
+    </View>
+  );
+};
+
+const DailyScreen = () => {
+  return (
+    <View>
+      <Text>
+        I am a Daily Screen
+      </Text>
+    </View>
+  );
+};
+
+const Search = () => {
+  return (
+    <View>
+      <Text>
+        I am a Search Screen
+      </Text>
+    </View>
+  );
+};
+
+const Workouts = () => {
+  return (
+    <View>
+      <Text>
+        I am a Workouts Screen
+      </Text>
+    </View>
+  );
+};
+const NutritionScreenNavigator = TabNavigator({
+  SavedFoods: {
+    screen: SavedFoods,
     navigationOptions: {
-      title: 'Home',
+      title: 'Saved Foods',
       tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.home}</FontAwesome>
     }
   },
-  Eat: {
-    screen: NutritionScreen,
+  Daily: {
+    screen: DailyScreen,
     navigationOptions: {
-      title: 'Nutrition',
+      title: 'Daily',
       tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.apple}</FontAwesome>
     }
   },
-  Workout: {
-    screen:  WorkoutScreen,
+  Search: {
+    screen:  Search,
     navigationOptions: {
-      title: 'Workout',
+      title: 'Search',
       tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.bicycle}</FontAwesome>
     }
   },
@@ -69,9 +110,18 @@ const AppNavigator = StackNavigator({
       title: 'Login'
     }
   },
-  Home: { screen: HomeScreenNavigator },
+  Home: { screen: HomeScreen,
+    navigationOptions: {
+      title: 'Home'
+    }},
   Nutrition: {
-    screen: NutritionScreen,
+    screen: NutritionScreenNavigator,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.apple}</FontAwesome>
+    }
+  },
+  Workouts: {
+    screen: Workouts,
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.apple}</FontAwesome>
     }
