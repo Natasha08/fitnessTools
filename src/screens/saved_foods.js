@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import _ from 'lodash';
+import styles from '../styles/main';
 
 class SavedFoods extends React.Component {
   createNewFood = () => {
@@ -22,14 +23,6 @@ class SavedFoods extends React.Component {
     }
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: 50
-  },
-});
 
 const mapStoreToProps = ({saved_foods}) => ({saved_foods});
 

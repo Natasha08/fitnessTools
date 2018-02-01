@@ -3,6 +3,7 @@ import { TabNavigator } from 'react-navigation';
 import { Text, View, ScrollView, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import Login from './login';
+import styles from '../styles/main';
 
 export default class Home extends React.Component {
   navigate = (path) => {
@@ -13,8 +14,8 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView>
-          <Text>
+        <ScrollView style={styles.container}>
+          <Text style={ styles.text }>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu
             feugiat tellus, vitae facilisis sem. In ipsum sem, sagittis ac mattis
             eget, vestibulum at erat. Vestibulum maximus urna vitae arcu vestibulum,
@@ -22,7 +23,7 @@ export default class Home extends React.Component {
           </Text>
           <Button style={styles.submit} onPress={this.navigate('Nutrition')}
             title="Nutrition" />
-          <Text>
+          <Text style={ styles.text }>
             luctus, viverra varius sapien. Cras egestas orci at auctor ullamcorper.
             Praesent ac sem id leo sodales tincidunt quis non mauris. Pellentesque
             porta cursus erat, ac condimentum nisi egestas eget. Nullam sit amet elit
@@ -31,7 +32,7 @@ export default class Home extends React.Component {
           </Text>
           <Button style={styles.submit} onPress={this.navigate('Workouts')}
             title="Workouts" />
-          <Text>
+          <Text style={ styles.text }>
             Quisque laoreet dictum nulla, placerat rutrum lacus dictum sit amet.
             Vivamus at quam ut leo consectetur iaculis. In euismod nisl non neque
             dictum vehicula. Pellentesque sollicitudin enim nisi. Quisque sit amet
@@ -44,13 +45,3 @@ export default class Home extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 10
-  },
-});

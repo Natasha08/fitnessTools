@@ -7,6 +7,7 @@ import NutritionScreen from './screens/nutrition';
 import HomeScreen from './screens/home';
 import Login from './screens/login';
 import SavedFoods from './screens/saved_foods';
+import NewFoodForm from './screens/new_food';
 
 const WorkoutsScreen = () => {
   return (
@@ -33,16 +34,6 @@ const Search = () => {
     <View>
       <Text>
         I am a Search Screen
-      </Text>
-    </View>
-  );
-};
-
-const newFoodForm = () => {
-  return (
-    <View>
-      <Text>
-        I am a newFoodForm Screen
       </Text>
     </View>
   );
@@ -83,6 +74,30 @@ const NutritionScreenNavigator = TabNavigator({
   tabBarOptions: {}
 });
 
+const Drawer = () => (
+  <View>
+    <Text>
+      I am a Drawer
+    </Text>
+  </View>
+);
+const DrawerStack = DrawerNavigator({
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: ({ navigation }) => ({
+      drawerLabel: 'Home',
+      headerLeft: <Text onPress={() => navigation.navigate('DrawerOpen')}>Menu</Text>
+    })
+  },
+  Nutrition: {
+    screen: NutritionScreenNavigator,
+    navigationOptions: ({ navigation }) => ({
+      drawerLabel: 'Nutrition',
+      headerLeft: <Text onPress={() => navigation.navigate('DrawerOpen')}>Menu</Text>
+    })
+  }
+});
+
 const AppNavigator = StackNavigator({
   Login: {
     screen: Login,
@@ -90,15 +105,12 @@ const AppNavigator = StackNavigator({
       title: 'Login'
     }
   },
-  Home: { screen: HomeScreen,
-    navigationOptions: {
-      title: 'Home'
-    }},
+  Home: { screen: DrawerStack },
   Nutrition: {
     screen: NutritionScreenNavigator
   },
   NewFood: {
-    screen: newFoodForm,
+    screen: NewFoodForm,
     navigationOptions: {
       title: 'New Food'
     }

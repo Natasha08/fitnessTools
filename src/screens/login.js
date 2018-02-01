@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { View, StyleSheet, AppRegistry } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
 import { NavigationActions } from 'react-navigation'
+import styles from '../styles/main';
 
 import axios from 'axios';
 
@@ -61,7 +62,6 @@ export class Login extends React.Component {
         <FormLabel>Password</FormLabel>
         <FormInput
           className="password"
-          style={{borderColor: 'gray', borderWidth: 1}}
           onChange={(e) => this.setState({password: e.target.value})}
           placeholder='Enter your password'
         />
@@ -72,17 +72,6 @@ export class Login extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: 50
-  },
-  submit: {
-    paddingTop: 50
-  }
-});
 
 const mapStoreToProps = ({auth}) => ({auth});
 const mapDispatchToProps = (dispatch) => {

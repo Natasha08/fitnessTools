@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-import { Login } from '../../src/pages/login';
+import { Login } from '../../src/screens/login';
 import config from '../../config';
 
 const mockStore = configureMockStore([thunk]);
